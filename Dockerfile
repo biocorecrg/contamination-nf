@@ -1,4 +1,4 @@
-FROM biocorecrg/debian-perlbrew-pyenv-java:buster
+FROM biocorecrg/debian-perlbrew-pyenv3-java:buster
 
 MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu>
 
@@ -25,6 +25,7 @@ RUN rm -rf /tmp/kraken2
 RUN cd /tmp; curl --fail --silent --show-error --location --remote-name https://github.com/jenniferlu717/Bracken/archive/v${BRACKEN_VERSION}.tar.gz
 RUN cd /tmp; tar zxf v${BRACKEN_VERSION}.tar.gz; cd Bracken-${BRACKEN_VERSION}; bash install_bracken.sh
 RUN mkdir -p /usr/local/bracken; cd /usr/local/bracken; cp -prf /tmp/Bracken-${BRACKEN_VERSION}/src .; cp -prf /tmp/Bracken-${BRACKEN_VERSION}/analysis_scripts .; cp /tmp/Bracken-${BRACKEN_VERSION}/bracken* .
+RUN cd /usr/local/bin; ln -s /usr/local/bracken/bracken* .
 RUN rm -rf /tmp/Bracken*
 
 # Clean cache
