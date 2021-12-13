@@ -7,11 +7,12 @@ ARG BRACKEN_VERSION=2.6.2
 
 # Upgrade system
 RUN set -x ; apt-get update && apt-get -y upgrade
-# Upgrade pip
-RUN pip install --upgrade pip
 
 # Adding perl module
 RUN cpanm List::MoreUtils
+
+# Upgrade pip
+RUN pip install --upgrade pip
 
 # Adding kraken2
 RUN cd /tmp; git clone https://github.com/DerrickWood/kraken2.git
