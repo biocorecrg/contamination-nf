@@ -8,6 +8,9 @@ ARG BRACKEN_VERSION=2.6.2
 # Upgrade system
 RUN set -x ; apt-get update && apt-get -y upgrade
 
+# Additional software
+RUN set -x ; apt-get install -y rsync
+
 # Adding perl module
 RUN cpanm List::MoreUtils
 
