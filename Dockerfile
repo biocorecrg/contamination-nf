@@ -4,6 +4,7 @@ MAINTAINER Toni Hermoso Pulido <toni.hermoso@crg.eu>
 
 #ARG KRAKEN_VERSION= To have
 ARG BRACKEN_VERSION=2.6.2
+ARG BLAST_VERSION=2.12.0
 
 # Upgrade system
 RUN set -x ; apt-get update && apt-get -y upgrade
@@ -12,7 +13,7 @@ RUN set -x ; apt-get update && apt-get -y upgrade
 RUN set -x ; apt-get install -y rsync
 
 # Adding perl module
-RUN cpanm List::MoreUtils
+RUN cpanm List::MoreUtils Encode
 
 # Upgrade pip
 RUN pip install --upgrade pip
@@ -30,6 +31,12 @@ RUN cd /tmp; tar zxf v${BRACKEN_VERSION}.tar.gz; cd Bracken-${BRACKEN_VERSION}; 
 RUN mkdir -p /usr/local/bracken; cd /usr/local/bracken; cp -prf /tmp/Bracken-${BRACKEN_VERSION}/src .; cp -prf /tmp/Bracken-${BRACKEN_VERSION}/analysis_scripts .; cp /tmp/Bracken-${BRACKEN_VERSION}/bracken* .
 RUN cd /usr/local/bin; ln -s /usr/local/bracken/bracken* .
 RUN rm -rf /tmp/Bracken*
+
+# Adding BLAST
+
+RUN cd /usr/local; curl --fail --silent --show-error --location --remote-name ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/${BLAST_VERSION}/ncbi-blast-${BLAST_VERSION}+-x64-linux.tar.gz
+RUN cd /usr/local; tar zxf ncbi-blast-${BLAST_VERSION}+-x64-linux.tar.gz; rm ncbi-blast-${BLAST_VERSION}+-x64-linux.tar.gz
+RUN cd /usr/local/bin; ln -s /usr/local/ncbi-blast-${BLAST_VERSION}+/bin/* .
 
 # Clean cache
 RUN apt-get clean
