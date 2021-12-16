@@ -24,6 +24,8 @@ singularity exec -e /software/bi/biocore_tools/git/singularity/metacont.sif brac
 
 ### Build kraken2
 
+Manual: https://github.com/DerrickWood/kraken2/blob/master/docs/MANUAL.markdown
+
 ```
 kraken2-build --download-taxonomy --db DB
 
