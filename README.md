@@ -1,6 +1,15 @@
 # contamination-nf
 Nextflow pipeline for checking contamination problems with reads among other tasks
 
+## Run:
+
+Modify params.config accordingly or copy it and replace it in the command-line below.
+
+```
+nextflow run -bg --config params.config main.nf &> log
+```
+
+
 ## Metagenomics analysis
 
 - Kraken2
