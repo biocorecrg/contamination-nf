@@ -12,7 +12,7 @@ nextflow run -bg --config params.config main.nf &> log
 ## TODO
 
 * To be ported to DSL2 + BioNextflow
-* Move build process in the pipeline (now in ```build-sh```)
+* Move build process in the pipeline (now in ```build.sh```)
 
 ## Links
 
