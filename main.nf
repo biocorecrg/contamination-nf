@@ -168,7 +168,7 @@ if (params.bracken == "YES") {
     output:
     file "bracken_${pair_id}.*.report" into bracken_report
     file "bracken_${pair_id}.*.out" into bracken_out
-    file "kraken2_${pair_id}_bracken.report" into bracken_default_report
+    file "kraken2_${pair_id}_bracken_species.report" into bracken_default_report
 
     script:
     """
