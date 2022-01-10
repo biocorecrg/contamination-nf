@@ -52,6 +52,8 @@ if (params.resume) exit 1, "Are you making the classical --resume typo? Be caref
 def subworkflowsDir = "${baseDir}/BioNextflow/subworkflows"
 
 include { RUN as KRAKEN2 } from "${subworkflowsDir}/metagenomics/kraken2" addParams(OUTPUT: params.output)
+include { BUILD as KRAKEN2_BUILD } from "${subworkflowsDir}/metagenomics/kraken2" addParams(OUTPUT: params.output)
+
 
 /*
  * Create channels for sequences data
@@ -146,6 +148,12 @@ Channel
 workflow {
 
   KRAKEN2(read_files, params.kraken2db)
+
+}
+
+workflow build {
+
+  KRAKEN2_BUILD(params.groups, params.dbname)
 
 }
 
