@@ -145,7 +145,7 @@ Channel
 
 workflow {
 
-  KRAKEN2(read_files, params.database)
+  KRAKEN2(read_files, params.kraken2db)
 
 }
 
