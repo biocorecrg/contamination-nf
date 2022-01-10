@@ -18,7 +18,6 @@ Contamination and Metagenomics pipeline from Bioinformatics Core @ CRG
 
 nextflow.enable.dsl=2
 
-
 version = '0.1'
 
 /*
@@ -52,7 +51,7 @@ if (params.resume) exit 1, "Are you making the classical --resume typo? Be caref
 
 def subworkflowsDir = "${baseDir}/BioNextflow/subworkflows"
 
-include { RUN as KRAKEN2 } from "${subworkflowsDir}/metagenomics/kraken2") addParams(OUTPUT: params.output)
+include { RUN as KRAKEN2 } from "${subworkflowsDir}/metagenomics/kraken2" addParams(OUTPUT: params.output)
 
 /*
  * Create channels for sequences data
