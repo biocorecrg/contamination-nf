@@ -81,7 +81,7 @@ workflow build {
 workflow bracken {
 
   (report, output, classified, unclassified) = KRAKEN2(read_files, params.kraken2db)
-  (brackendb, bracken_out) = BRACKEN_BUILD(read_files, params.kraken2db, ".")
+  (brackendb, bracken_out) = BRACKEN_BUILD(read_files, params.kraken2db)
   (report_bracken, output_bracken, default_report) = BRACKEN(read_files, brackendb, report, output, bracken_out)
 
 }
