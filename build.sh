@@ -8,10 +8,10 @@ export SING="singularity exec -e /software/bi/singularity/kraken2/kraken2-202112
 export ADDFASTA="/nfs/db/kraken2/tmp/ncbi-genomes-2021-12-16/GCF_002263795.1_ARS-UCD1.2_genomic.fna"
 
 # Taxonomy
-$SING kraken2-build --download-taxonomy $ADDFASTA --db $DB
+$SING kraken2-build --download-taxonomy --db $DB
 
 # Additional files
-$SING kraken2-build --add-to-library -db $DB
+$SING kraken2-build --add-to-library $ADDFASTA --db $DB
 
 # Defined groups
 orgs=( viral bacteria archaea fungi protozoa human UniVec_Core )
