@@ -6,13 +6,18 @@ Nextflow pipeline for checking contamination problems with reads among other tas
 Modify params.config accordingly or copy it and replace it in the command-line below.
 
 ```
+# Running KRAKEN2
 nextflow run -bg --config params.config main.nf &> log
 ```
 
+Different subworkflows:
+
+* build
+* bracken
+
 ## TODO
 
-* To be ported to DSL2 + BioNextflow
-* Move build process in the pipeline (now in ```build.sh```)
+* Allow adding custom FASTAs (now in ```build.sh```)
 
 ## Links
 
