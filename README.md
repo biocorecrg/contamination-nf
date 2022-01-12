@@ -6,6 +6,7 @@ Nextflow pipeline for checking contamination problems with reads among other tas
 Modify params.config accordingly or copy it and replace it in the command-line below.
 
 ```
+# Running KRAKEN2
 nextflow run -bg --config params.config main.nf &> log
 ```
 
