@@ -11,7 +11,7 @@ export ADDFASTA="/nfs/db/kraken2/tmp/ncbi-genomes-2021-12-16/GCF_002263795.1_ARS
 $SING kraken2-build --download-taxonomy --db $DB
 
 # Additional files
-$SING kraken2-build --add-to-library $ADDFASTA -db $DB
+$SING kraken2-build --add-to-library $ADDFASTA --db $DB
 
 # Defined groups
 orgs=( viral bacteria archaea fungi protozoa human UniVec_Core )
