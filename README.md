@@ -1,6 +1,10 @@
 # contamination-nf
 Nextflow pipeline for checking contamination problems with reads among other tasks
 
+## Install
+git clone git@github.com:biocorecrg/contamination-nf.git --recurse-submodules 
+
+
 ## Run:
 
 Modify params.config accordingly or copy it and replace it in the command-line below.
